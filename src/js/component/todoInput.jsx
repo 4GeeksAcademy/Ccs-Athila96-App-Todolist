@@ -12,10 +12,14 @@ export const TodoInput = ({ data, setData, setTask }) => {
       }}
       onKeyDown={(event) => {
         if (event.key == "Enter") {
-          setData("");
-          setTask((prev) => {
-            return [...prev, data];
-          });
+          if (data == "") {
+            return alert("No hay ninguna tarea que registrar");
+          } else {
+            setData("");
+            setTask((prev) => {
+              return [...prev, data];
+            });
+          }
         }
       }}
     />
